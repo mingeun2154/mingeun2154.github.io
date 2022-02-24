@@ -1,0 +1,74 @@
+---
+title: 적외선 송신기(IRsender)
+date: 2021-12-31
+categories: [Arduino]
+layout: post
+toc: true
+tags: [Arduino, IoT, IRremote]     # TAG names should always be lowercase
+---
+- - -
+앞서 만든 수신기에 신호를 보낼 리모컨이다.  
+
+> 개발환경 : m1 mac    
+> IDE : vscode의 PLATFORMIO    
+
+# 1.회로 구성
+> 준비물 : 아두이노 nano, 미니 브레드보드, 아두이노 적외선 레이저 모듈      
+
+적외선 레이저 모듈 pinmap (출처: 에듀이노)
+<img src="/assets/img/IRremote/sender_pinmap.png" width="90%" height="90%" alt="sender_pinmap">      
+Circuit design   
+버튼을 누르면 적외선 신호가 레이저의 형태로 출력된다.
+<img src="/assets/img/IRremote/sender_circuit.png" width="90%" height="90%" alt="sender_circuit">         
+<img src="/assets/img/IRremote/sender.jpeg" width="90%" height="90%" alt="sender">      
+
+# 2. 코드    
+```c++
+//remote controller
+#include <Arduino.h>
+#include <IRremote.h>
+
+int sendPin=3;
+int buttonPin=10;
+
+//turn on main light
+IRsend irsend_main_on;
+IRData irdata_main_on{LG, 0x88, 0xC005, 0, 0x1C, 0x80, 0x88C051, nullptr};
+
+//turn off main light
+IRsend main_off;
+IRData irdata_main_off;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+  //IRSend set
+  irsend_main_on.begin(sendPin, false);
+  irsend_main_on.write(&irdata_main_on);
+  irsend_main_on.enableIROut(38);
+}
+
+void loop() {
+  if(digitalRead(buttonPin)==HIGH){
+    irsend_main_on.sendLG(irdata_main_on.address, irdata_main_on.command, 0);
+    Serial.print("turn on\n");
+    delay(500);
+  }
+}
+```   
+## 2-1. 코드 설명   
+### IRSend 객체
+> 발신기의 abstract   
+
+### sendLG(...) 함수   
+> argument로 받은 정보를 LG protocol로 encoding하여 정보를 전송한다.
+
+# 3. 실행   
+<img src="/assets/img/IRremote/serial_monitor.jpeg" width="100%" height="100%" alt="serial_monitor">    
+(시리얼 모니터에 출력된 숫자들은 모두 16진수)   
+88C0051이 수신되면 정상적으로 수신된 경우이고 그 외의 값들은 비정상적인 경우이다.   
+```dalay()``` 가 없으면 의도한 값을 수신받지 못한다.   
+
+# 4. 한계  
+<img src="/assets/img/IRremote/execute.PNG" width="100%" height="100%" alt="execute">    
+위와같이 레이저가 수신기에 맞아야한다. 이 모듈을 사용해서 리모컨을 만들기에는 적합하지 않다.

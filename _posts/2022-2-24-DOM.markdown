@@ -1,0 +1,28 @@
+---
+title: DOM
+date: 2022-2-24 14:22
+categories: [WEB]
+layout: post
+toc: true
+tags: [web,]     # TAG names should always be lowercase
+---
+- - -
+
+DOM이란 **HTML, XML 문서를 객체로 나타내는 API** 이다.    
+
+## API(Application Programming Interface)
+특정 방식으로 명령 또는 요청을 받았을 때 그에 따른 기능을 수행하도록 만들어 놓는 것을 의미한다.   
+**함수로 비유하자면 함수의 parameter의 data type, 개수와 그에 따른 반환값을 정해놓은 주문서라고 할 수 있다.**    
+하나의 API가 주어지면 함수의 몸통은 구현하는 프로그래머마다 다를 수 있겠지만 사용자 입장에서는 몸통이 다르다는 것을 느끼면 안된다. 
+    
+**동일한 API를 구현했다면 구현되는 과정은 달라도 하는 일은 모두 동일하다.**
+
+     
+## DOM(Document Object Model)
+다시 DOM으로 돌아와서, 좀더 자세히 알아보도록 하자.
+DOM은 html 문서의 element들을 object로 나타내는 **API**이다.
+
+html elements를 실제 DOM 객체로 구현하는 것은 **web browser**이다.
+좀더 자세히 말하자면 web browser의 **rendering engine**이다.
+
+이렇게 만들어진 객체 하나하나를 **Node**라고 한다
