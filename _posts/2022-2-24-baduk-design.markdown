@@ -1,7 +1,7 @@
 ---
 title: 바둑 연습 프로그램-설계
 date: 2022-2-24 15:57
-categories: [Project]
+categories: [Project, baduk]
 layout: post
 toc: true
 tags: [JAVA, 바둑]     # TAG names should always be lowercase
