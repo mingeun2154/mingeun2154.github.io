@@ -1,0 +1,17 @@
+---
+title: JFrame의 구조
+date: 2022-2-28 14:31
+categories: [Project, baduk]
+layout: post
+toc: true
+tags: [Swing]     # TAG names should always be lowercase
+---
+- - -
+
+Swing은 Java에서 GUI를 구현하기 위해 JDK에서 기본적으로 제공하는 툴킷이다.
+
+Swing으로 표현하는 GUI는 다음과 같은 구조를 가진다.    
+<img src="/assets/img/JFrame/structure.png" width="80%" heigth="80%" alt="structure">
+
+## JFrame
+하나의 window(창)이다. 
