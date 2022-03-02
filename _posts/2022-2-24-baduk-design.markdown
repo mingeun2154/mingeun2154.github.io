@@ -1,14 +1,14 @@
 ---
-title: 바둑 연습 프로그램-설계
+title: baduk 프로젝트 - 설계
 date: 2022-2-24 15:57
 categories: [Project, baduk]
 layout: post
 toc: true
-tags: [JAVA, 바둑]     # TAG names should always be lowercase
+tags: [JAVA, baduk]     # TAG names should always be lowercase
 ---
 - - -
 
-Java의  Swing 라이브러리를 사용해 바둑을 연습할 수 있는 프로그램이다.     
+Java의 **Swing 라이브러리**를 사용해 **바둑을 연습할 수 있는 프로그램**이다.     
     
 ## 핵심 기능
 * 착수
