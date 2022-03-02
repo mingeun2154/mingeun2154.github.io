@@ -21,7 +21,7 @@ Java의  Swing 라이브러리를 사용해 바둑을 연습할 수 있는 프�
 				     
 <img src="/assets/img/baduk/service_flow.png" width="100%" height="100%" alt="service_flow">
 
-## Components Structurs
+## Components
 [**MVC 패턴**](/posts/MVC/ "MVC 패턴 알아보기")을 적용하여 패키지를 다음 components로 나누었다.
 * controller : 사용자로부터 받은 입력을 처리한다.
 * service : domain을 조작하여 game logic 을 구현한다. 
