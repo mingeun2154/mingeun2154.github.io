@@ -28,15 +28,15 @@ MainFrame(JFrame) <- StartScreen(JPanel) <- NewGameButton/LoadGameButton(JButton
 
 ## CheckerBoard (바둑판)
 TestFrame(JFrame) <- NewGameScreen(JPanel) <- CheckerBoard(JPanel)
-<img src="/assets/img/baduk/checkerBoard_explain.png" width="100%" height="100%" alt="바둑판 설명">      
+<img src="/assets/img/baduk/checkerBoard_explain.png" width="100%" height="100%" alt="explain">      
        
 
-<img src="/assets/img/baduk/checkerBoard_mockup.png" width="60%" height="60%" alt="바둑판 테스트">
+<img src="/assets/img/baduk/checkerBoard_mockup.png" width="60%" height="60%" alt="test">
 
 ## 고민
-현재 StartScreenController는 두 버튼에 대한 클릭을 감지한다. 클릭된 버튼에 따라 그에 맞는 화면으로 전환하는 기능을 구현할 예정이다.   
+1. 현재 StartScreenController는 두 버튼에 대한 클릭을 감지한다. 클릭된 버튼에 따라 그에 맞는 화면으로 전환하는 기능을 구현할 예정이다.   
 그런데 이와 같은 **단순 화면 전환도  controller를 거쳐서 진행되어야하는지**가 의문이다. 딱히 model의 data를 바꾸는 일이 아니기 때문이다. 그렇다고 view에서만 처리하기에는 사용자와 상호작용하는 것은 controller의 역할이다.     
-controller가 클릭을 감지하고 화면을 바꾸기 위해서는 controller에서 view에게 접근이 가능해야 한다.    
+2. controller가 클릭을 감지하고 화면을 바꾸기 위해서는 controller에서 view에게 접근이 가능해야 한다.    
 구체적으로 __StartScreenController가 현재 띄워진 StartScreen JPanel 또는 StartScreen이 붙어있는 전체 MainFrame 객체를 가지고 있어야 한다.__     
 프레임워크의 도움 없이 이걸 구현하는 방법은 __MainFrame을 싱글톤 객체로 만드는 방법__ 이 유일한 것 같다.       
 그래야 클래스 외부에서 공통된 유일한 객체에 접근할 수 있기 때문이다.       
