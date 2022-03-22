@@ -28,10 +28,10 @@ MainFrame(JFrame) <- StartScreen(JPanel) <- NewGameButton/LoadGameButton(JButton
 
 ## CheckerBoard (바둑판)
 TestFrame(JFrame) <- NewGameScreen(JPanel) <- CheckerBoard(JPanel)
-<img src="/assets/img/baduk/checkerBoard_explain.png" width="100%" height="100%" alt="explain">      
+<img src="/assets/img/baduk/CheckerBoard_explain.png" width="100%" height="100%" alt="explain">      
        
 
-<img src="/assets/img/baduk/checkerBoard_mockup.png" width="60%" height="60%" alt="test">
+<img src="/assets/img/baduk/CheckerBoard_mockup.png" width="60%" height="60%" alt="test">
 
 ## 고민
 1. 현재 StartScreenController는 두 버튼에 대한 클릭을 감지한다. 클릭된 버튼에 따라 그에 맞는 화면으로 전환하는 기능을 구현할 예정이다.   
